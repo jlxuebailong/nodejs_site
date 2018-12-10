@@ -1,0 +1,84 @@
+<h2>Sign up for our newsletter to receive news and specials! <b>{{colorScheme}}</b></h2>
+
+<div class="formContainer">
+<form id="newsletterForm" class="form-horizontal newsletterForm" role="form"
+      action="/newsletter" method="POST">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <div class="form-group">
+        <label for="fieldName" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control"
+                   id="fieldName" name="name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-4">
+            <input type="email" class="form-control" required
+                   id="fieldEmail" name="email">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+            <button type="submit" class="btn btn-default">Post Submit Register</button>
+        </div>
+    </div>
+</form>
+</div>
+<hr>
+
+
+<div class="formContainer">
+    <form id="newsletterFormAjax" class="form-horizontal newsletterForm" role="form"
+          action="/process?form=newsletter" method="POST">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <div class="form-group">
+            <label for="fieldName" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control"
+                       id="fieldName" name="name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control" required
+                       id="fieldEmail" name="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-default">AJAX Submit Register</button>
+            </div>
+        </div>
+    </form>
+    <div id="result"></div>
+</div>
+
+{{#section 'jquery'}}
+    <script>
+        $(document).ready(function () {
+            $('#newsletterFormAjax').on('submit',function (evt) {
+                evt.preventDefault();
+                var action=$(this).attr('action');
+                var $result=$('#result');
+                $.ajax({
+                    url:action,
+                    type:'post',
+                    data:$(this).serialize(),
+                    success:function (data) {
+                        if(data.success){
+                            $result.html('<h2>Thank you!</h2>');
+                        }else{
+                            $result.html('<h2>There was a problom!</h2>');
+                        }
+                    },
+                    error:function () {
+                        $result.html('There was a problem.');
+                    }
+                });
+            });
+
+        });
+    </script>
+{{/section}}

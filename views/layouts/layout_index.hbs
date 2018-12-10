@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<title>L2 - Meadowlark Travel </title>
+	{{#if showTests}}
+		<link rel="stylesheet" href="/vendor/mocha.css">
+	{{/if}}
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+</head>
+<body>
+	<div style="float: left;width: 40%;">
+		{{{body}}}
+		
+		{{#if showTests}}
+			<div id="mocha"></div>
+			<script type="text/javascript" src="/vendor/mocha.js"></script>
+			<script type="text/javascript" src="/vendor/chai.js"></script>
+			<script type="text/javascript">
+				mocha.ui('tdd');
+				var assert = chai.assert;
+			</script>
+			<script type="text/javascript" src="/qa/tests-global.js"></script>
+			{{#if pageTestScript}}
+				<script type="text/javascript" src="{{pageTestScript}}"></script>
+			{{/if}}
+			<script type="text/javascript">mocha.run()</script>
+		{{/if}}
+	</div>
+	<div style="float: right;width: 60%;margin-top: 100px;">
+		<img src="/img/Section2.jpg" alt="Meadowlark Travel Background"/>
+	</div>
+</body>
+</html>

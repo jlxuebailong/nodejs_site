@@ -1,0 +1,29 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "This is a lab for NodeJS",
+  "main": "meadowlark",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "meadowlark"
+  ],
+  "author": "Gavin.Xue",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "grunt": "^1.0.3",
+    "grunt-cafe-mocha": "^0.1.13",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-exec": "^3.0.0",
+    "mocha": "^5.2.0"
+  }
+}

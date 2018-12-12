@@ -9,7 +9,7 @@ module.exports=function(grunt){
 
 	grunt.initConfig({
 		cafemocha:{
-			all:{src:'qa/tests-*.js',options:{ui:'tdd'},}
+			all:{src:'public/qa/tests-stress.js',options:{ui:'tdd'},}
 		},
 		jshint:{
 			app:['meadowlark.js','public/js/**/*.js','lib/fortune.js'],

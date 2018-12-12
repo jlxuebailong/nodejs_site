@@ -13,10 +13,16 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6"
+    "express-logger": "0.0.3",
+    "express-session": "^1.15.6",
+    "loadtest": "^3.0.4",
+    "mongoose": "^5.3.16",
+    "morgan": "^1.9.1",
+    "vhost": "^3.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
